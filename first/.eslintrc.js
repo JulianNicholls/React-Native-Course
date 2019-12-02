@@ -23,8 +23,8 @@ module.exports = {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'jsx-a11y/href-no-hash': 'off',
-    'jsx-a11y/anchor-is-valid': ['warn', { aspects: ['invalidHref'] }],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    // 'jsx-a11y/anchor-is-valid': ['warn', { aspects: ['invalidHref'] }],
+    // 'react-hooks/rules-of-hooks': 'error',
+    // 'react-hooks/exhaustive-deps': 'warn',
   },
 };
