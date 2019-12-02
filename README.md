@@ -4,11 +4,11 @@ Code from the Stephen Grider React Native course on
 
 ## Progress
 
-  Section 4 - Navigation
+  Beginning Section 5 - Reusable components
 
 ## Differences from Stephen
 
-Nothing much yet :-)
+Nothing substantial yet :-)
 
 ### Git client
 
