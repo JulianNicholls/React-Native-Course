@@ -16,7 +16,12 @@
     "react-navigation": "^3.11.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.1.1"
+    "babel-preset-expo": "^5.1.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0"
+
   },
   "private": true
 }
