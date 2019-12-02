@@ -4,11 +4,11 @@ Code from the Stephen Grider React Native course on
 
 ## Progress
 
-  Section 3 - List with style
+  Section 4 - Navigation
 
 ## Differences from Stephen
 
-Nothing yet :-)
+Nothing much yet :-)
 
 ### Git client
 
