@@ -2,6 +2,13 @@
 Code from the Stephen Grider React Native course on 
 [Udemy](https://www.udemy.com/course/the-complete-react-native-and-redux-course)
 
+## PROBLEMS
+
+If you have problems that seem mystifying, i.e. you have exactly the same 
+code as Stephen but it's not working for you: 
+
+**STOP THE SERVER AND RUN `npm start` AGAIN.**
+
 ## Progress
 
   Beginning Section 5 - Reusable components

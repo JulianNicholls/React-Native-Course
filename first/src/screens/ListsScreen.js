@@ -37,6 +37,7 @@ const ListsScreen = () => {
 const styles = StyleSheet.create({
   titleStyle: {
     fontSize: 30,
+    textAlign: 'center',
     marginBottom: 10,
   },
   itemStyle: {
