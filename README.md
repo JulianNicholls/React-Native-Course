@@ -11,11 +11,14 @@ code as Stephen but it's not working for you:
 
 ## Progress
 
-  Beginning Section 5 - Reusable components
+  Beginning Section 6 - State Management
 
 ## Differences from Stephen
 
-Nothing substantial yet :-)
+* My rn-starter directory is more or less untouched from Stephen's zip file.
+  I have started my first app in a directory called first.
+
+* I have styled the image and caption much more in the first app.
 
 ### Git client
 

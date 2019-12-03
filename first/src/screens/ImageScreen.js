@@ -20,7 +20,7 @@ const ImageScreen = () => {
       <ImageDetail
         title="Forest"
         source={require('../../assets/forest.jpg')}
-        // score={7}
+        score={7}
       />
     </View>
   );
