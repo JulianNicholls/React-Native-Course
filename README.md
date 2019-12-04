@@ -4,10 +4,13 @@ Code from the Stephen Grider React Native course on
 
 ## PROBLEMS
 
-If you have problems that seem mystifying, i.e. you have exactly the same 
-code as Stephen but it's not working for you: 
+If you have any problems that seem mystifying, you have exactly the same 
+code as Stephen but you have big red messages instead of an app
 
 **STOP THE SERVER AND RUN `npm start` AGAIN.**
+
+This is particularly true if you have messages like `Cannot load module "94"`
+which is truly mystifying :-)
 
 ## Progress
 
@@ -16,9 +19,9 @@ code as Stephen but it's not working for you:
 ## Differences from Stephen
 
 * My rn-starter directory is more or less untouched from Stephen's zip file.
-  I have started my first app in a directory called first.
+  I have started my first app in a directory called `first`.
 
-* I have styled the image and caption much more in the first app.
+* I have styled the images and captions much more in the first app.
 
 ### Git client
 
