@@ -28,4 +28,5 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
 });
+
 export default CounterScreen;
