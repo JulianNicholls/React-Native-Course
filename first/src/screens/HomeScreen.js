@@ -53,6 +53,12 @@ const styles = StyleSheet.create({
   },
 });
 
+NavButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  destination: PropTypes.string.isRequired,
+  load: PropTypes.func.isRequired,
+};
+
 HomeScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
 };

@@ -21,7 +21,10 @@ which is truly mystifying :-)
 * My rn-starter directory is more or less untouched from Stephen's zip file.
   I have started my first app in a directory called `first`.
 
-* I have styled the images and captions much more in the first app.
+* I have styled everything much more in the first app.
+
+* I have added prop types to all the screens and components, because ESLint whines 
+  about them being missing :-)
 
 ### Git client
 
