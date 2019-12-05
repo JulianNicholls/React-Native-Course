@@ -21,10 +21,14 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   counter: {
-    fontSize: 70,
+    backgroundColor: '#dddddd',
+    borderWidth: 1,
+    borderColor: '#333333',
+    fontSize: 100,
+    padding: 20,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: '#f44336',
+    color: '#ff4328',
     marginBottom: 40,
   },
 });
