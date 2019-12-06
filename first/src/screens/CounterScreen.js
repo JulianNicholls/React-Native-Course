@@ -1,15 +1,35 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
+// This is the most pointless use of reducers ever
+const reducer = (counter, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return counter + 1;
+
+    case 'DECREMENT':
+      return counter - 1;
+
+    default:
+      return counter;
+  }
+};
+
 const CounterScreen = () => {
-  const [counter, setCounter] = useState(0);
+  const [counter, dispatch] = useReducer(reducer, 0);
 
   return (
     <View>
       <Text style={styles.title}>Counter</Text>
       <Text style={styles.counter}>{counter}</Text>
-      <Button title="Increase" onPress={() => setCounter(counter + 1)}></Button>
-      <Button title="Decrease" onPress={() => setCounter(counter - 1)}></Button>
+      <Button
+        title="Increase"
+        onPress={() => dispatch({ type: 'INCREMENT' })}
+      ></Button>
+      <Button
+        title="Decrease"
+        onPress={() => dispatch({ type: 'DECREMENT' })}
+      ></Button>
     </View>
   );
 };

@@ -26,6 +26,10 @@ which is truly mystifying :-)
 * I have added prop types to all the screens and components, because ESLint whines 
   about them being missing :-)
 
+* I rarely, if ever, use the name `payload` for the data contained in a Redux /
+  reducer action. The main exception to this is when using `redux-promise` which 
+  requires that the promised data name has to be `payload`.
+
 ### Git client
 
 I have used Git at the command-line for more than 10 years. Over that time, I have tried

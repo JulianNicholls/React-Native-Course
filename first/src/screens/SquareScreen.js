@@ -5,25 +5,23 @@ import ColourAdjuster from '../components/ColourAdjuster';
 
 const INCREMENT = 5;
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'red':
-      return {
-        ...state,
-        red: Math.max(0, Math.min(255, state.red + action.delta * INCREMENT)),
-      };
+// I have taken the object destructuring to a ridiculous extent here.
+// I would not recommend this.
+const reducer = (state, { type, delta }) => {
+  const { max, min } = Math;
+  const { red, green, blue } = state;
 
-    case 'green':
-      return {
-        ...state,
-        green: Math.max(0, Math.min(255, state.green + action.delta * INCREMENT)),
-      };
+  delta *= INCREMENT;
 
-    case 'blue':
-      return {
-        ...state,
-        blue: Math.max(0, Math.min(255, state.blue + action.delta * INCREMENT)),
-      };
+  switch (type) {
+    case 'CHANGE_RED':
+      return { ...state, red: max(0, min(255, red + delta)) };
+
+    case 'CHANGE_GREEN':
+      return { ...state, green: max(0, min(255, green + delta)) };
+
+    case 'CHANGE_BLUE':
+      return { ...state, blue: max(0, min(255, blue + delta)) };
 
     default:
       return state;
@@ -37,15 +35,15 @@ const SquareScreen = () => {
       <Text style={styles.title}>RGB Block</Text>
       <ColourAdjuster
         colour="Red"
-        adjust={delta => dispatch({ type: 'red', delta })}
+        adjust={delta => dispatch({ type: 'CHANGE_RED', delta })}
       />
       <ColourAdjuster
         colour="Green"
-        adjust={delta => dispatch({ type: 'green', delta })}
+        adjust={delta => dispatch({ type: 'CHANGE_GREEN', delta })}
       />
       <ColourAdjuster
         colour="Blue"
-        adjust={delta => dispatch({ type: 'blue', delta })}
+        adjust={delta => dispatch({ type: 'CHANGE_BLUE', delta })}
       />
 
       <View
