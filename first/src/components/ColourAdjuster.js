@@ -2,20 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Button, StyleSheet } from 'react-native';
 
-const INCREMENT = 5;
-
 const ColourAdjuster = ({ colour, adjust }) => {
   return (
     <View style={styles.view}>
       <Button
         title={`More ${colour}`}
         color={colour.toLowerCase()}
-        onPress={() => adjust(+INCREMENT)}
+        onPress={() => adjust(+1)}
       />
       <Button
         title={`Less ${colour}`}
         color={colour.toLowerCase()}
-        onPress={() => adjust(-INCREMENT)}
+        onPress={() => adjust(-1)}
       />
     </View>
   );

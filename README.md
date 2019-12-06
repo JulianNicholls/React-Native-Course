@@ -4,7 +4,7 @@ Code from the Stephen Grider React Native course on
 
 ## PROBLEMS
 
-If you have any problems that seem mystifying, you have exactly the same 
+If you have any unexpected problems, where you have exactly the same 
 code as Stephen but you have big red messages instead of an app
 
 **STOP THE SERVER AND RUN `npm start` AGAIN.**
@@ -14,7 +14,7 @@ which is truly mystifying :-)
 
 ## Progress
 
-  Beginning Section 6 - State Management
+  Section 6 - State Management
 
 ## Differences from Stephen
 
@@ -39,3 +39,4 @@ Git shell and would advise using it to everyone.
 
 If you have any questions about this repository, or any others of mine, please
 don't hesitate to contact me.
+
