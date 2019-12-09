@@ -22,6 +22,7 @@ const HomeScreen = ({ navigation }) => {
       <NavButton text="Counter" destination="Counter" load={load} />
       <NavButton text="Colours" destination="Colour" load={load} />
       <NavButton text="Square" destination="Square" load={load} />
+      <NavButton text="Input" destination="Input" load={load} />
     </View>
   );
 };
