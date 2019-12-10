@@ -5,16 +5,16 @@ Code from the Stephen Grider React Native course on
 ## PROBLEMS
 
 If you have any unexpected problems, where you have exactly the same 
-code as Stephen but you have big red messages instead of an app
+code as Stephen but you have big red messages instead of an app.
 
-**STOP THE SERVER AND RUN `npm start` AGAIN.**
+**TRY STOPPING THE SERVER AND RUNNING `npm start` AGAIN.**
 
 This is particularly true if you have messages like `Cannot load module "94"`
 which is truly mystifying :-)
 
 ## Progress
 
-  Section 6 - State Management
+  Completed section 6 - State Management
 
 ## Differences from Stephen
 

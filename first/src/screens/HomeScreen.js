@@ -23,6 +23,7 @@ const HomeScreen = ({ navigation }) => {
       <NavButton text="Colours" destination="Colour" load={load} />
       <NavButton text="Square" destination="Square" load={load} />
       <NavButton text="Input" destination="Input" load={load} />
+      <NavButton text="Boxes" destination="Box" load={load} />
     </View>
   );
 };
@@ -41,8 +42,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#abd7ed',
     borderColor: '#247ca8',
     borderWidth: 1,
-    borderRadius: 3,
-    padding: 10,
+    borderRadius: 4,
+    padding: 8,
     width: '80%',
     marginBottom: 10,
     marginLeft: 'auto',
