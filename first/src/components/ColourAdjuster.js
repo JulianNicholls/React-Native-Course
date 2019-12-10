@@ -21,7 +21,6 @@ const ColourAdjuster = ({ colour, adjust }) => {
 
 const styles = StyleSheet.create({
   view: {
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     backgroundColor: '#c0c0c0',

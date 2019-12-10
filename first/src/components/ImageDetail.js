@@ -17,7 +17,6 @@ const ImageDetail = ({ title, source, score }) => {
 const styles = StyleSheet.create({
   view: {
     marginTop: 20,
-    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',

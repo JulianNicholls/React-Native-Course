@@ -14,7 +14,7 @@ which is truly mystifying :-)
 
 ## Progress
 
-  Completed section 6 - State Management
+  Completed section 7 - Screen Layout
 
 ## Differences from Stephen
 
