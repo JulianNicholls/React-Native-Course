@@ -14,7 +14,7 @@ const HomeScreen = ({ navigation }) => {
   };
 
   return (
-    <View class={styles.buttonContainer}>
+    <View style={styles.buttonContainer}>
       <Text style={styles.title}>Home</Text>
 
       <NavButton text="List" destination="Lists" load={load} />
@@ -29,13 +29,12 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    alignItems: 'center',
+  },
   title: {
     fontSize: 30,
-    textAlign: 'center',
     marginBottom: 30,
-  },
-  buttonContainer: {
-    display: 'flex',
   },
   button: {
     alignItems: 'center',
@@ -46,8 +45,6 @@ const styles = StyleSheet.create({
     padding: 8,
     width: '80%',
     marginBottom: 10,
-    marginLeft: 'auto',
-    marginRight: 'auto',
   },
   buttonText: {
     color: 'blue',
