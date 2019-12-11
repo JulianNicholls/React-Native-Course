@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, TextInput, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 const SearchBar = ({ term, setTerm, startSearch }) => {
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#f0f0f0',
     paddingVertical: 5,
-    borderColor: '#e0e0e0',
+    borderColor: '#d0d0d0',
     borderRadius: 5,
     marginHorizontal: 15,
     marginVertical: 10,
@@ -38,7 +39,13 @@ const styles = StyleSheet.create({
   input: {
     flex: 1, // Doesn't seem necessary for me
     fontSize: 20,
-    // padding: 5,
   },
 });
+
+SearchBar.propTypes = {
+  term: PropTypes.string.isRequired,
+  setTerm: PropTypes.func.isRequired,
+  startSearch: PropTypes.func.isRequired,
+};
+
 export default SearchBar;
