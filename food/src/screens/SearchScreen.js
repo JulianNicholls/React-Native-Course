@@ -2,37 +2,17 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import SearchBar from '../components/SearchBar';
-import yelp from '../api/yelp';
+import useYelp from '../hooks/useYelp';
 
 const SearchScreen = () => {
   const [term, setTerm] = useState('');
-  const [results, setResults] = useState([]);
-  const [error, setError] = useState('');
-
-  const search = async () => {
-    try {
-      const response = await yelp.get('/search', {
-        params: {
-          term,
-          limit: 50,
-          location: 'Bournemouth',
-        },
-      });
-
-      setResults(response.data.businesses);
-    } catch (err) {
-      setError('Could not load restaurants. Please try again later.');
-    }
-  };
+  const [search, results, error] = useYelp();
 
   return (
     <View>
-      <SearchBar term={term} setTerm={setTerm} startSearch={search} />
-      {error ? (
-        <Text style={styles.error}>{error}</Text>
-      ) : (
-        <Text>Businesses: {results.length}</Text>
-      )}
+      <SearchBar term={term} setTerm={setTerm} startSearch={() => search(term)} />
+      {error ? <Text style={styles.error}>{error}</Text> : null}
+      {results.length > 0 ? <Text>Businesses: {results.length}</Text> : null}
     </View>
   );
 };
