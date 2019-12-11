@@ -14,7 +14,7 @@ which is truly mystifying :-)
 
 ## Progress
 
-  Completed section 7 - Screen Layout
+  Lecture 101 - beginning to show search results
 
 ## Differences from Stephen
 
