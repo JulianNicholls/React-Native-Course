@@ -7,10 +7,9 @@ import yelp from '../api/yelp';
 const SearchScreen = () => {
   const [term, setTerm] = useState('');
   const [results, setResults] = useState([]);
+  const [error, setError] = useState('');
 
   const search = async () => {
-    console.log('Search for', term);
-
     try {
       const response = await yelp.get('/search', {
         params: {
@@ -22,16 +21,27 @@ const SearchScreen = () => {
 
       setResults(response.data.businesses);
     } catch (err) {
-      console.error(err);
+      setError('Could not load restaurants. Please try again later.');
     }
   };
 
   return (
     <View>
       <SearchBar term={term} setTerm={setTerm} startSearch={search} />
-      <Text>Businesses: {results.length}</Text>
+      {error ? (
+        <Text style={styles.error}>{error}</Text>
+      ) : (
+        <Text>Businesses: {results.length}</Text>
+      )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  error: {
+    fontSize: 18,
+    color: 'red',
+  },
+});
 
 export default SearchScreen;
