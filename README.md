@@ -30,6 +30,10 @@ which is truly mystifying :-)
   reducer action. The main exception to this is when using `redux-promise` which 
   requires that the promised data name has to be `payload`.
 
+* The filtering in my food app is a lot more complicated than Stephen's.
+  In the UK, the Yelp API frequently returns a lot less information, including
+  and empty or missing `price` field.
+
 ### Git client
 
 I have used Git at the command-line for more than 10 years. Over that time, I have tried
