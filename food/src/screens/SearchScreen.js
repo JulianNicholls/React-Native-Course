@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
 
 import SearchBar from '../components/SearchBar';
 import useYelp from '../hooks/useYelp';
@@ -13,7 +13,8 @@ const SearchScreen = () => {
     const priceLen = price.length;
 
     // In the UK, the £ (GBP) character is used instead of the $ (USD),
-    // hence I'm matching by length.
+    // hence I'm matching by length and so many have no price valuation,
+    // that I have created an unrated list.
     if (priceLen === 0) return results.filter(r => !r.price);
     else return results.filter(r => r.price && r.price.length === priceLen);
   };
@@ -23,11 +24,10 @@ const SearchScreen = () => {
       <SearchBar term={term} setTerm={setTerm} startSearch={() => search(term)} />
       {error ? <Text style={styles.error}>{error}</Text> : null}
       {results.length > 0 ? (
-        <View>
-          <Text>Businesses: {results.length}</Text>
+        <ScrollView>
           <RestaurantList title="Unpriced" restaurants={restaurantsByPrice('')} />
           <RestaurantList
-            title="Cost effective"
+            title="Everyday bargains"
             restaurants={restaurantsByPrice('$')}
           />
           <RestaurantList
@@ -41,7 +41,7 @@ const SearchScreen = () => {
               ...restaurantsByPrice('$$$$'),
             ]}
           />
-        </View>
+        </ScrollView>
       ) : null}
     </View>
   );
@@ -49,6 +49,7 @@ const SearchScreen = () => {
 
 const styles = StyleSheet.create({
   error: {
+    alignItems: 'center',
     fontSize: 18,
     color: 'red',
   },

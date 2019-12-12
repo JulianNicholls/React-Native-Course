@@ -9,10 +9,11 @@ const RestaurantList = ({ title, restaurants }) => {
   if (restaurants.length === 0) return null;
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <FlatList
         horizontal
+        showsHorizontalScrollIndicator={false}
         data={restaurants}
         keyExtractor={item => item.id}
         renderItem={({ item }) => <Restaurant restaurant={item} />}
@@ -22,7 +23,12 @@ const RestaurantList = ({ title, restaurants }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 10,
+  },
   title: {
+    marginLeft: 10,
+    marginBottom: 5,
     fontSize: 18,
     fontWeight: 'bold',
   },

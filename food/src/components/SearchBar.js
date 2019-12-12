@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderColor: '#d0d0d0',
     borderRadius: 5,
-    marginHorizontal: 15,
+    marginHorizontal: 10,
     marginVertical: 10,
   },
   icon: {

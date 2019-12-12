@@ -6,7 +6,19 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 const Restaurant = ({ restaurant }) => {
   return (
     <View style={styles.view}>
-      <Image style={styles.image} source={{ uri: restaurant.image_url }} />
+      {restaurant.image_url ? (
+        <Image
+          style={styles.image}
+          source={{ uri: restaurant.image_url }}
+          resizeMode="center"
+        />
+      ) : (
+        <Image
+          style={styles.image}
+          source={require('../../assets/placeholder.png')}
+          resizeMode="contain"
+        />
+      )}
       <Text style={styles.title}>{restaurant.name}</Text>
       <Text>
         {restaurant.rating} stars, {restaurant.review_count} reviews
@@ -17,17 +29,18 @@ const Restaurant = ({ restaurant }) => {
 
 const styles = StyleSheet.create({
   view: {
-    margin: 20,
+    marginLeft: 10,
   },
   image: {
     width: 200,
     height: 120,
     borderRadius: 4,
+    marginBottom: 5,
   },
   title: {
+    // textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold',
-    marginRight: 5,
   },
 });
 
