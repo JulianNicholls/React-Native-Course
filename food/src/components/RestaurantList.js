@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
 import Restaurant from './Restaurant';
 
@@ -9,7 +10,9 @@ const RestaurantList = ({ title, restaurants, navigation }) => {
   if (restaurants.length === 0) return null;
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('RestaurantShow')}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('RestaurantShow', { id: item.id })}
+    >
       <Restaurant restaurant={item} />
     </TouchableOpacity>
   );
@@ -46,4 +49,4 @@ RestaurantList.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export default RestaurantList;
+export default withNavigation(RestaurantList);

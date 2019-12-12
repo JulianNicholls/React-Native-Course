@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { ScrollView, Text, StyleSheet } from 'react-native';
 
 import SearchBar from '../components/SearchBar';
 import useYelp from '../hooks/useYelp';
 import RestaurantList from '../components/RestaurantList';
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
   const [term, setTerm] = useState('');
   const [search, results, error] = useYelp();
 
@@ -26,20 +25,14 @@ const SearchScreen = ({ navigation }) => {
       {error ? <Text style={styles.error}>{error}</Text> : null}
       {results.length > 0 ? (
         <ScrollView>
-          <RestaurantList
-            title="Unpriced"
-            restaurants={restaurantsByPrice('')}
-            navigation={navigation}
-          />
+          <RestaurantList title="Unpriced" restaurants={restaurantsByPrice('')} />
           <RestaurantList
             title="Everyday bargains"
             restaurants={restaurantsByPrice('$')}
-            navigation={navigation}
           />
           <RestaurantList
             title="Middle range"
             restaurants={restaurantsByPrice('$$')}
-            navigation={navigation}
           />
           <RestaurantList
             title="High end dining"
@@ -47,7 +40,6 @@ const SearchScreen = ({ navigation }) => {
               ...restaurantsByPrice('$$$'),
               ...restaurantsByPrice('$$$$'),
             ]}
-            navigation={navigation}
           />
         </ScrollView>
       ) : (
@@ -69,9 +61,5 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 });
-
-SearchScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
-};
 
 export default SearchScreen;
