@@ -30,15 +30,19 @@ which is truly mystifying :-)
   reducer action. The main exception to this is when using `redux-promise` which 
   requires that the promised data name has to be `payload`.
 
+* My classes in the foodie app are generally `Restaurant` where Stephen 
+  uses `Result(s)`
+
 * The filtering in my foodie app is a lot more complicated than Stephen's.
   In the UK, the Yelp API frequently returns a lot less information, including
   an empty or missing `price` field.
-  
+
 * As a consequence of the previous, in addition to the lists with the three 
   tiers of price, I have another list where the price range is unknown.
 
-* My classes in the foodie app are generally `Restaurant` where Stephen 
-  uses `Result(s)`
+* Also, so many of the restaurants don't even have a single picture, so I have 
+  added a placeholder image to the restaurant lists, and have taken care of it 
+  on the restaurant detail page as well.
 
 ### Git client
 
