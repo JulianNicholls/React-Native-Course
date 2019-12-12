@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import { ScrollView, Text, StyleSheet } from 'react-native';
 
 import SearchBar from '../components/SearchBar';
 import useYelp from '../hooks/useYelp';
 import RestaurantList from '../components/RestaurantList';
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
   const [term, setTerm] = useState('');
   const [search, results, error] = useYelp();
 
@@ -25,14 +26,20 @@ const SearchScreen = () => {
       {error ? <Text style={styles.error}>{error}</Text> : null}
       {results.length > 0 ? (
         <ScrollView>
-          <RestaurantList title="Unpriced" restaurants={restaurantsByPrice('')} />
+          <RestaurantList
+            title="Unpriced"
+            restaurants={restaurantsByPrice('')}
+            navigation={navigation}
+          />
           <RestaurantList
             title="Everyday bargains"
             restaurants={restaurantsByPrice('$')}
+            navigation={navigation}
           />
           <RestaurantList
             title="Middle range"
             restaurants={restaurantsByPrice('$$')}
+            navigation={navigation}
           />
           <RestaurantList
             title="High end dining"
@@ -40,9 +47,12 @@ const SearchScreen = () => {
               ...restaurantsByPrice('$$$'),
               ...restaurantsByPrice('$$$$'),
             ]}
+            navigation={navigation}
           />
         </ScrollView>
-      ) : null}
+      ) : (
+        <Text style={styles.info}>No results found</Text>
+      )}
     </>
   );
 };
@@ -53,6 +63,15 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'red',
   },
+  info: {
+    fontSize: 18,
+    textAlign: 'center',
+    marginTop: 20,
+  },
 });
+
+SearchScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+};
 
 export default SearchScreen;

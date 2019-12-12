@@ -11,7 +11,6 @@ const SearchBar = ({ term, setTerm, startSearch }) => {
         style={styles.input}
         autoCapitalize="none"
         autoCorrect={false}
-        autoFocus={true}
         placeholder="Search"
         value={term}
         onChangeText={setTerm}

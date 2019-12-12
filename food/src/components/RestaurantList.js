@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 
 import Restaurant from './Restaurant';
 
-const RestaurantList = ({ title, restaurants }) => {
+const RestaurantList = ({ title, restaurants, navigation }) => {
   // Bail out if there's no restaurants to show
   if (restaurants.length === 0) return null;
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity onPress={() => navigation.navigate('RestaurantShow')}>
+      <Restaurant restaurant={item} />
+    </TouchableOpacity>
+  );
 
   return (
     <View style={styles.container}>
@@ -16,7 +22,7 @@ const RestaurantList = ({ title, restaurants }) => {
         showsHorizontalScrollIndicator={false}
         data={restaurants}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => <Restaurant restaurant={item} />}
+        renderItem={renderItem}
       />
     </View>
   );
@@ -37,6 +43,7 @@ const styles = StyleSheet.create({
 RestaurantList.propTypes = {
   title: PropTypes.string.isRequired,
   restaurants: PropTypes.array.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 export default RestaurantList;
