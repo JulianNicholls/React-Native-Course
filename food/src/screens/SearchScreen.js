@@ -20,7 +20,7 @@ const SearchScreen = () => {
   };
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <SearchBar term={term} setTerm={setTerm} startSearch={() => search(term)} />
       {error ? <Text style={styles.error}>{error}</Text> : null}
       {results.length > 0 ? (
