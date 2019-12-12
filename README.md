@@ -14,7 +14,7 @@ which is truly mystifying :-)
 
 ## Progress
 
-  Lecture 101 - beginning to show search results
+  Lecture 117 - Completed restaurant app
 
 ## Differences from Stephen
 
@@ -30,9 +30,15 @@ which is truly mystifying :-)
   reducer action. The main exception to this is when using `redux-promise` which 
   requires that the promised data name has to be `payload`.
 
-* The filtering in my food app is a lot more complicated than Stephen's.
+* The filtering in my foodie app is a lot more complicated than Stephen's.
   In the UK, the Yelp API frequently returns a lot less information, including
-  and empty or missing `price` field.
+  an empty or missing `price` field.
+  
+* As a consequence of the previous, in addition to the lists with the three 
+  tiers of price, I have another list where the price range is unknown.
+
+* My classes in the foodie app are generally `Restaurant` where Stephen 
+  uses `Result(s)`
 
 ### Git client
 
