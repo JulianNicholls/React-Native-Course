@@ -1,29 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
-const NavButton = ({ text, destination, load }) => (
-  <TouchableOpacity style={styles.button} onPress={() => load(destination)}>
+const NavButton = withNavigation(({ text, destination, navigation }) => (
+  <TouchableOpacity
+    style={styles.button}
+    onPress={() => navigation.navigate(destination)}
+  >
     <Text style={styles.buttonText}>{text}</Text>
   </TouchableOpacity>
-);
+));
 
-const HomeScreen = ({ navigation }) => {
-  const load = destination => {
-    navigation.navigate(destination);
-  };
-
+const HomeScreen = () => {
   return (
     <View style={styles.buttonContainer}>
       <Text style={styles.title}>Home</Text>
 
-      <NavButton text="List" destination="Lists" load={load} />
-      <NavButton text="Images" destination="Image" load={load} />
-      <NavButton text="Counter" destination="Counter" load={load} />
-      <NavButton text="Colours" destination="Colour" load={load} />
-      <NavButton text="Square" destination="Square" load={load} />
-      <NavButton text="Input" destination="Input" load={load} />
-      <NavButton text="Boxes" destination="Box" load={load} />
+      <NavButton text="List" destination="Lists" />
+      <NavButton text="Images" destination="Image" />
+      <NavButton text="Counter" destination="Counter" />
+      <NavButton text="Colours" destination="Colour" />
+      <NavButton text="Square" destination="Square" />
+      <NavButton text="Input" destination="Input" />
+      <NavButton text="Boxes" destination="Box" />
     </View>
   );
 };
@@ -55,11 +55,7 @@ const styles = StyleSheet.create({
 NavButton.propTypes = {
   text: PropTypes.string.isRequired,
   destination: PropTypes.string.isRequired,
-  load: PropTypes.func.isRequired,
-};
-
-HomeScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
+  navigation: PropTypes.object,
 };
 
 export default HomeScreen;
