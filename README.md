@@ -14,7 +14,7 @@ which is truly mystifying :-)
 
 ## Progress
 
-  Lecture 117 - Completed restaurant app
+  Section 12 - Advanced data management with context
 
 ## Differences from Stephen
 
@@ -43,6 +43,9 @@ which is truly mystifying :-)
 * Also, so many of the restaurants don't even have a single picture, so I have 
   added a placeholder image to the restaurant lists, and have taken care of it 
   on the restaurant detail page as well.
+
+* I have changed the context in the blog app to use a custom hook, because there
+  is no reason to ever expose the context directly.
 
 ### Git client
 
