@@ -1,27 +1,38 @@
 import React from 'react';
-import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  Button,
+  FlatList,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 import { useBlog } from '../context';
 
 const IndexScreen = () => {
-  const { state: posts, addPost } = useBlog();
+  const { state: posts, addPost, deletePost } = useBlog();
 
   return (
     <>
       <FlatList
         data={posts}
-        keyExtractor={(item, index) => `${item.title}-${index}`}
+        keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <View style={styles.post}>
             <Text style={styles.title}>{item.title}</Text>
-            <Feather style={styles.icon} name="trash" />
+            <TouchableOpacity onPress={() => deletePost(item.id)}>
+              <Feather style={styles.icon} name="trash" />
+            </TouchableOpacity>
           </View>
         )}
       />
       <Button
         title="Add another"
-        onPress={() => addPost('Another post', 'More contentious content')}
+        onPress={() =>
+          addPost(`Post No. ${posts.length + 1}`, 'More contentious content')
+        }
       />
     </>
   );

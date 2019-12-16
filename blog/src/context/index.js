@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import createDataContext from './createDataContext';
 
 const defaultPosts = [
-  { title: 'First past the post', content: 'Yes, I am content' },
-  { title: 'Second in command', content: 'Contentious, eh?' },
+  { id: 'ghfjeklg', title: 'First past the post', content: 'Yes, I am content' },
+  { id: 'fdhsklj', title: 'Second in command', content: 'Contentious, eh?' },
 ];
 
 // Actions
@@ -19,30 +19,31 @@ export const addPost = dispatch => {
 };
 
 export const updatePost = dispatch => {
-  return (title, content) => {
-    dispatch({ type: UPDATE_POST, post: { title, content } });
+  return (id, title, content) => {
+    dispatch({ type: UPDATE_POST, post: { id, title, content } });
   };
 };
 
 export const deletePost = dispatch => {
-  return title => {
-    dispatch({ type: DELETE_POST, post: { title } });
+  return id => {
+    dispatch({ type: DELETE_POST, post: { id } });
   };
 };
 
 const blogReducer = (posts, action) => {
-  let newPosts = posts.filter(post => post.title !== action.post.title);
+  let newPosts = posts.filter(post => post.id !== action.post.id);
 
   switch (action.type) {
     case ADD_POST:
-      return [...posts, action.post];
+      return [
+        ...posts,
+        { id: Math.floor(Math.random() * 9999999).toString(), ...action.post },
+      ];
 
     case UPDATE_POST:
       return [...newPosts, action.post];
 
     case DELETE_POST:
-      posts = posts.filter(post => post.title !== action.title);
-
       return newPosts;
 
     default:
