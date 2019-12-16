@@ -1,39 +1,68 @@
-import React, { useState, useContext } from 'react';
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
 
-const BlogContext = React.createContext();
+import createDataContext from './createDataContext';
 
 const defaultPosts = [
-  { id: '0', title: 'First past the post', content: 'Yes, I am content' },
-  { id: '1', title: 'Second in command', content: 'Contentious, eh?' },
+  { title: 'First past the post', content: 'Yes, I am content' },
+  { title: 'Second in command', content: 'Contentious, eh?' },
 ];
 
-export const BlogProvider = ({ children }) => {
-  const [posts, setPosts] = useState(defaultPosts);
-  const [nextId, setNextId] = useState(defaultPosts.length);
+// Actions
+const ADD_POST = 'ADD_POST';
+const UPDATE_POST = 'UPDATE_POST';
+const DELETE_POST = 'DELETE_POST';
 
-  const addPost = (title, content) => {
-    setPosts([...posts, { id: nextId.toString(), title, content }]);
-    setNextId(nextId + 1);
+export const addPost = dispatch => {
+  return (title, content) => {
+    dispatch({ type: ADD_POST, post: { title, content } });
   };
+};
 
-  const state = {
-    posts,
-    addPost,
+export const updatePost = dispatch => {
+  return (title, content) => {
+    dispatch({ type: UPDATE_POST, post: { title, content } });
   };
-
-  return <BlogContext.Provider value={state}>{children}</BlogContext.Provider>;
 };
 
-BlogProvider.propTypes = {
-  children: PropTypes.element,
+export const deletePost = dispatch => {
+  return title => {
+    dispatch({ type: DELETE_POST, post: { title } });
+  };
 };
 
-export const usePosts = () => {
-  const value = useContext(BlogContext);
+const blogReducer = (posts, action) => {
+  let newPosts = posts.filter(post => post.title !== action.post.title);
 
-  if (value === undefined)
-    throw new Error('usePosts() must be inside a BlogProvider block');
+  switch (action.type) {
+    case ADD_POST:
+      return [...posts, action.post];
 
-  return value;
+    case UPDATE_POST:
+      return [...newPosts, action.post];
+
+    case DELETE_POST:
+      posts = posts.filter(post => post.title !== action.title);
+
+      return newPosts;
+
+    default:
+      return posts;
+  }
 };
+
+const { Context: BlogContext, Provider: BlogProvider } = createDataContext(
+  blogReducer,
+  { addPost, updatePost, deletePost },
+  defaultPosts
+);
+
+export const useBlog = () => {
+  const context = useContext(BlogContext);
+
+  if (context === undefined)
+    throw new Error('useBlog() must be inside a BlogProvider block');
+
+  return context;
+};
+
+export { BlogProvider };

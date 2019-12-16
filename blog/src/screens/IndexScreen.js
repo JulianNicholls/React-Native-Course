@@ -1,22 +1,22 @@
 import React from 'react';
-import { Text, Button, FlatList, StyleSheet } from 'react-native';
+import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
-import { usePosts } from '../context';
+import { useBlog } from '../context';
 
 const IndexScreen = () => {
-  const { posts, addPost } = usePosts();
+  const { state: posts, addPost } = useBlog();
 
   return (
     <>
-      <Text style={styles.title}>Posts ({posts.length})</Text>
       <FlatList
         data={posts}
-        keyExtractor={item => item.id}
+        keyExtractor={(item, index) => `${item.title}-${index}`}
         renderItem={({ item }) => (
-          <>
-            <Text>{item.title}</Text>
-            <Text>{item.content}</Text>
-          </>
+          <View style={styles.post}>
+            <Text style={styles.title}>{item.title}</Text>
+            <Feather style={styles.icon} name="trash" />
+          </View>
         )}
       />
       <Button
@@ -28,10 +28,20 @@ const IndexScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  post: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderColor: 'gray',
+  },
   title: {
+    fontSize: 18,
+    color: '#000070',
+  },
+  icon: {
     fontSize: 20,
-    textAlign: 'center',
-    marginTop: 10,
   },
 });
 
