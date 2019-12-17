@@ -17,17 +17,17 @@ const ShowScreen = ({ navigation }) => {
   );
 };
 
-ShowScreen.navigationOptions = ({ navigation }) => {
-  const post = navigation.getParam('post');
-
-  return {
-    headerRight: (
-      <TouchableOpacity onPress={() => navigation.navigate('Edit', { post })}>
-        <EvilIcons name="pencil" size={30} />
-      </TouchableOpacity>
-    ),
-  };
-};
+ShowScreen.navigationOptions = ({ navigation }) => ({
+  headerRight: (
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate('Edit', { post: navigation.getParam('post') })
+      }
+    >
+      <EvilIcons name="pencil" size={30} />
+    </TouchableOpacity>
+  ),
+});
 
 const styles = StyleSheet.create({
   post: {

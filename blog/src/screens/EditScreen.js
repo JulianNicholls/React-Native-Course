@@ -1,40 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import { useBlog } from '../context';
+import PostForm from '../components/PostForm';
 
 const EditScreen = ({ navigation }) => {
   const post = navigation.getParam('post');
-  const [title, setTitle] = useState(post.title);
-  const [content, setContent] = useState(post.content);
 
   const { updatePost } = useBlog();
 
   return (
     <View style={styles.view}>
-      <Text style={styles.title}>New Post</Text>
+      <Text style={styles.title}>Edit Post</Text>
 
-      <Text style={styles.label}>Title</Text>
-      <TextInput
-        style={styles.input}
-        value={title}
-        onChangeText={text => setTitle(text)}
-      />
-      <Text style={styles.label}>Content</Text>
-      <TextInput
-        style={styles.input}
-        value={content}
-        onChangeText={text => setContent(text)}
-      />
-      <Button
-        title="Update"
-        onPress={() => {
-          updatePost(post.id, title, content, () => {
-            navigation.navigate('Index');
-          });
-        }}
+      <PostForm
+        initialTitle={post.title}
+        initialContent={post.content}
+        buttonText="Update"
+        onSubmit={(title, content) =>
+          updatePost(post.id, title, content, () => navigation.navigate('Index'))
+        }
       />
     </View>
   );
@@ -47,16 +34,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign: 'center',
-    marginBottom: 10,
-  },
-  label: {
-    fontSize: 18,
-    marginBottom: 5,
-  },
-  input: {
-    fontSize: 16,
-    borderWidth: 1,
-    padding: 5,
     marginBottom: 10,
   },
 });
