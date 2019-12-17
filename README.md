@@ -47,6 +47,9 @@ which is truly mystifying :-)
 * I have changed the context in the blog app to use a custom hook, because there
   is no reason to ever expose the context directly.
 
+* Where Stephen passes the ID of a post to updated or delete, I pass the complete 
+  post.
+
 ### Git client
 
 I have used Git at the command-line for more than 10 years. Over that time, I have tried

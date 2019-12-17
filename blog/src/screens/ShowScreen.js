@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { Feather } from '@expo/vector-icons';
-
-import { useBlog } from '../context';
+import { EvilIcons } from '@expo/vector-icons';
 
 const ShowScreen = ({ navigation }) => {
-  const { deletePost } = useBlog();
   const post = navigation.getParam('post');
 
   return (
@@ -16,16 +13,20 @@ const ShowScreen = ({ navigation }) => {
         <Text style={styles.title}>{post.title}</Text>
         <Text style={styles.content}>{post.content}</Text>
       </View>
-      <TouchableOpacity
-        onPress={() => {
-          deletePost(post.id);
-          navigation.goBack();
-        }}
-      >
-        <Feather style={styles.icon} name="trash" />
-      </TouchableOpacity>
     </>
   );
+};
+
+ShowScreen.navigationOptions = ({ navigation }) => {
+  const post = navigation.getParam('post');
+
+  return {
+    headerRight: (
+      <TouchableOpacity onPress={() => navigation.navigate('Edit', { post })}>
+        <EvilIcons name="pencil" size={30} />
+      </TouchableOpacity>
+    ),
+  };
 };
 
 const styles = StyleSheet.create({

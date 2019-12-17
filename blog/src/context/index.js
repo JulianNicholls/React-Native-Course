@@ -15,19 +15,21 @@ const DELETE_POST = 'DELETE_POST';
 export const addPost = dispatch => {
   return (title, content, callback) => {
     dispatch({ type: ADD_POST, post: { title, content } });
-    callback();
+    callback && callback();
   };
 };
 
 export const updatePost = dispatch => {
-  return (id, title, content) => {
+  return (id, title, content, callback) => {
     dispatch({ type: UPDATE_POST, post: { id, title, content } });
+    callback && callback();
   };
 };
 
 export const deletePost = dispatch => {
-  return id => {
+  return (id, callback) => {
     dispatch({ type: DELETE_POST, post: { id } });
+    callback && callback();
   };
 };
 
