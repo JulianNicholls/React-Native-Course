@@ -16,7 +16,12 @@ const ShowScreen = ({ navigation }) => {
         <Text style={styles.title}>{post.title}</Text>
         <Text style={styles.content}>{post.content}</Text>
       </View>
-      <TouchableOpacity onPress={() => deletePost(post.id)}>
+      <TouchableOpacity
+        onPress={() => {
+          deletePost(post.id);
+          navigation.goBack();
+        }}
+      >
         <Feather style={styles.icon} name="trash" />
       </TouchableOpacity>
     </>
@@ -46,4 +51,5 @@ const styles = StyleSheet.create({
 ShowScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
+
 export default ShowScreen;
