@@ -13,8 +13,9 @@ const UPDATE_POST = 'UPDATE_POST';
 const DELETE_POST = 'DELETE_POST';
 
 export const addPost = dispatch => {
-  return (title, content) => {
+  return (title, content, callback) => {
     dispatch({ type: ADD_POST, post: { title, content } });
+    callback();
   };
 };
 

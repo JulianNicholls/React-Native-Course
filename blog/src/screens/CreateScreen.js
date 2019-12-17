@@ -30,8 +30,9 @@ const CreateScreen = ({ navigation }) => {
       <Button
         title="Add post"
         onPress={() => {
-          addPost(title, content);
-          navigation.goBack();
+          addPost(title, content, () => {
+            navigation.goBack();
+          });
         }}
       />
     </View>
