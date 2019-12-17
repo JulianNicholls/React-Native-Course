@@ -14,7 +14,7 @@ which is truly mystifying :-)
 
 ## Progress
 
-  Section 12 - Advanced data management with context
+  Completed section 12 - Advanced state management with Context
 
 ## Differences from Stephen
 

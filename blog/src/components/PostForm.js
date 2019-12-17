@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { Text, TextInput, Button, StyleSheet } from 'react-native';
 
 const PostForm = ({
   initialTitle = '',
@@ -13,7 +13,7 @@ const PostForm = ({
   const [content, setContent] = useState(initialContent);
 
   return (
-    <View style={styles.view}>
+    <>
       <Text style={styles.label}>Title</Text>
       <TextInput
         style={styles.input}
@@ -27,14 +27,11 @@ const PostForm = ({
         onChangeText={text => setContent(text)}
       />
       <Button title={buttonText} onPress={() => onSubmit(title, content)} />
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  view: {
-    padding: 10,
-  },
   label: {
     fontSize: 18,
     marginBottom: 5,
@@ -53,4 +50,5 @@ PostForm.propTypes = {
   buttonText: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
+
 export default PostForm;
