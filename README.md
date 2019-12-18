@@ -14,7 +14,7 @@ which is truly mystifying :-)
 
 ## Progress
 
-  Completed section 12 - Advanced state management with Context
+  Completed section 13 - Data API sync
 
 ## Differences from Stephen
 
@@ -37,10 +37,10 @@ which is truly mystifying :-)
   In the UK, the Yelp API frequently returns a lot less information, including
   an empty or missing `price` field.
 
-* As a consequence of the previous, in addition to the lists with the three 
+  As a consequence of the previous, in addition to the lists with the three 
   tiers of price, I have another list where the price range is unknown.
 
-* Also, so many of the restaurants don't even have a single picture, so I have 
+  Also, so many of the restaurants don't even have a single picture, so I have 
   added a placeholder image to the restaurant lists, and have taken care of it 
   on the restaurant detail page as well.
 
@@ -49,6 +49,14 @@ which is truly mystifying :-)
 
 * Where Stephen passes the ID of a post to updated or delete, I pass the complete 
   post.
+
+* I have no clue why Stephen removes the call to dispatch for adding posts
+  to the list in memory, necessitating a roundtrip to the server. This would be 
+  disastrous in a real application where there are a large number of posts
+  to load from a remote server.
+
+  Premature optimisation is to be avoided, but when the code is already there 
+  and tested, why would you stop using it?
 
 ### Git client
 

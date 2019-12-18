@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 import { useBlog } from '../context';
 
 const IndexScreen = ({ navigation }) => {
-  const { state: posts, deletePost } = useBlog();
+  const { state: posts, loadPosts, deletePost } = useBlog();
+
+  useEffect(() => {
+    loadPosts();
+  }, []);
 
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={() => navigation.navigate('Show', { post: item })}>

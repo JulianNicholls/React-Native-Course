@@ -1,7 +1,19 @@
 {
   "posts": [
-      { "id": "ghfjeklg", "title": "First past the post", "content": "Yes, I am content" },
-  { "id": "fdhsklj", "title": "Second in command", "content": "Contentious, eh?" }
-
+    {
+      "id": "111",
+      "title": "First past the post - from JSON",
+      "content": "Yes, I am content"
+    },
+    {
+      "id": "222",
+      "title": "Second in command - from JSON",
+      "content": "Contentious, eh?"
+    },
+    {
+      "title": "New post updated",
+      "content": "Content edited",
+      "id": "eff83Nj"
+    }
   ]
 }
