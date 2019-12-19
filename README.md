@@ -58,6 +58,8 @@ which is truly mystifying :-)
   Premature optimisation is to be avoided, but when the code is already there 
   and tested, why would you stop using it?
 
+* I always use the terms 'log in' and 'log out', to make a contrast with 'sign up'.
+
 ### Git client
 
 I have used Git at the command-line for more than 10 years. Over that time, I have tried
