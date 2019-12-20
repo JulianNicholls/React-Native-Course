@@ -2,13 +2,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 require('./models/User');
+require('./models/Track');
+
 const authRouter = require('./routes/auth');
+const trackRouter = require('./routes/tracks');
 const requireAuth = require('./middleware/requireAuth');
 
 const app = express();
 
 app.use(express.json());
 app.use(authRouter);
+app.use(trackRouter);
 
 const port = process.env.PORT || 3001;
 

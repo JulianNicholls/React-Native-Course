@@ -4,7 +4,7 @@ Code from the Stephen Grider React Native course on
 
 ## PROBLEMS
 
-If you have any unexpected problems, where you have exactly the same 
+If you have any unexpected problems, like where you have exactly the same 
 code as Stephen but you have big red messages instead of an app.
 
 **TRY STOPPING THE SERVER AND RUNNING `npm start` AGAIN.**
@@ -12,11 +12,17 @@ code as Stephen but you have big red messages instead of an app.
 This is particularly true if you have messages like `Cannot load module "94"`
 which is truly mystifying :-)
 
+Another thing is that you can't leave expo running during sleep 
+or when you install new npm modules. It will not work, and you will get the 
+mystifying errors.
+
 ## Progress
 
-  Completed section 13 - Data API sync
+  Completed section 14 - Custom Express API
 
 ## Differences from Stephen
+
+### First App
 
 * My rn-starter directory is more or less untouched from Stephen's zip file.
   I have started my first app in a directory called `first`.
@@ -25,6 +31,8 @@ which is truly mystifying :-)
 
 * I have added prop types to all the screens and components, because ESLint whines 
   about them being missing :-)
+
+### Food
 
 * I rarely, if ever, use the name `payload` for the data contained in a Redux /
   reducer action. The main exception to this is when using `redux-promise` which 
@@ -47,7 +55,8 @@ which is truly mystifying :-)
 * I have changed the context in the blog app to use a custom hook, because there
   is no reason to ever expose the context directly.
 
-* Where Stephen passes the ID of a post to updated or delete, I pass the complete 
+### Blog
+* Where Stephen passes the ID of a post to update or delete, I pass the complete 
   post.
 
 * I have no clue why Stephen removes the call to dispatch for adding posts
@@ -58,7 +67,10 @@ which is truly mystifying :-)
   Premature optimisation is to be avoided, but when the code is already there 
   and tested, why would you stop using it?
 
-* I always use the terms 'log in' and 'log out', to make a contrast with 'sign up'.
+### Track and Track Server
+
+* I always use the terms 'log in' and 'log out', to make a contrast with 'sign up',
+  hence my login route is `/login` rather than `/signin`.
 
 ### Git client
 
