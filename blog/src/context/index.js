@@ -20,6 +20,7 @@ export const loadPosts = dispatch => {
     }
   };
 };
+
 export const addPost = dispatch => {
   return async (title, content, callback) => {
     try {
