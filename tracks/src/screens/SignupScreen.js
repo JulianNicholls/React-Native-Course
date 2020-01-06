@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
 import { Text, Input, Button } from 'react-native-elements';
 
+import { useAuth } from '../context/Auth';
+
 import Spacer from '../components/Spacer';
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { state: auth, authSignup } = useAuth();
 
   return (
     <View style={styles.container}>
@@ -35,8 +38,12 @@ const SignupScreen = ({ navigation }) => {
         onChangeText={setPassword}
       />
 
+      {auth.errorMessage !== '' && (
+        <Text style={styles.error}>{auth.errorMessage}</Text>
+      )}
+
       <Spacer>
-        <Button title="Sign up" />
+        <Button title="Sign up" onPress={() => authSignup(email, password)} />
       </Spacer>
     </View>
   );
@@ -52,8 +59,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 250,
   },
-  title: {
-    fontSize: 32,
+  error: {
+    marginTop: 15,
+    textAlign: 'center',
+    fontSize: 16,
+    color: 'red',
   },
 });
 
