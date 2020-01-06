@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 const AccountScreen = () => {
   return <Text style={styles.title}>AccountScreen</Text>;
