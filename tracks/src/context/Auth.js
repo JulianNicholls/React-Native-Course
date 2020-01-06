@@ -1,50 +1,49 @@
 import { useContext } from 'react';
+import { AsyncStorage } from 'react-native';
 
 import createDataContext from './createDataContext';
 import trackerAPI from '../api/tracker';
+import { navigate } from '../navigationRef';
 
 const AUTH_LOGIN = 'AUTH/LOGIN';
 const AUTH_LOGOUT = 'AUTH/LOGOUT';
 const AUTH_ERROR = 'AUTH/ERROR';
 
-export const authSignup = dispatch => {
-  return async (email, password) => {
-    try {
-      const response = await trackerAPI.post('/signup', { email, password });
+const authSignup = dispatch => async (email, password) => {
+  try {
+    const response = await trackerAPI.post('/signup', { email, password });
+    const { token } = response.data;
 
-      console.log(response.data);
+    await AsyncStorage.setItem('token', token);
 
-      const { token } = response.data;
-      dispatch({ type: AUTH_LOGIN, token });
-    } catch (err) {
-      console.log(err.response.data);
-      dispatch({
-        type: AUTH_ERROR,
-        message: 'Cannot sign up with that email address',
-      });
-    }
-  };
+    dispatch({ type: AUTH_LOGIN, token });
+    navigate('TrackList');
+  } catch (err) {
+    console.log(err.response.data);
+    dispatch({
+      type: AUTH_ERROR,
+      message: 'Cannot sign up with that email address',
+    });
+  }
 };
 
-export const authLogin = dispatch => {
-  return async (email, password) => {
-    try {
-      const response = await trackerAPI.post('/login', { email, password });
+const authLogin = dispatch => async (email, password) => {
+  try {
+    const response = await trackerAPI.post('/login', { email, password });
+    const { token } = response.data;
 
-      console.log(response.data);
-      const { token } = response.data;
-      dispatch({ type: AUTH_LOGIN, token });
-    } catch (err) {
-      console.log(err.response.data);
-      dispatch({ type: AUTH_ERROR, message: 'Unrecognised email or password' });
-    }
-  };
+    await AsyncStorage.setItem('token', token);
+
+    dispatch({ type: AUTH_LOGIN, token });
+    navigate('TrackList');
+  } catch (err) {
+    console.log(err.response.data);
+    dispatch({ type: AUTH_ERROR, message: 'Unrecognised email or password' });
+  }
 };
 
-export const authLogout = dispatch => {
-  return () => {
-    dispatch({ type: AUTH_LOGOUT });
-  };
+const authLogout = dispatch => () => {
+  dispatch({ type: AUTH_LOGOUT });
 };
 
 const authReducer = (auth, action) => {
