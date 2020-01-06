@@ -3,20 +3,26 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import SearchScreen from './src/screens/SearchScreen';
-import RestaurantScreen from './src/screens/RestaurantScreen';
+import SignupScreen from './src/screens/SignupScreen';
+import LoginScreen from './src/screens/LoginScreen';
+import TrackCreateScreen from './src/screens/TrackCreateScreen';
+import AccountScreen from './src/screens/AccountScreen';
+import TrackListScreen from './src/screens/TrackListScreen';
+import TrackDetailScreen from './src/screens/TrackDetailScreen';
 
-const navigator = createStackNavigator(
-  {
-    Search: SearchScreen,
-    RestaurantShow: RestaurantScreen,
-  },
-  {
-    initialRouteName: 'Search',
-    defaultNavigationOptions: {
-      title: 'Business Search',
-    },
-  }
-);
+const switchNavigator = createSwitchNavigator({
+  loginFlow: createStackNavigator({
+    Login: LoginScreen,
+    Signup: SignupScreen,
+  }),
+  mainFlow: createBottomTabNavigator({
+    trackListFlow: createStackNavigator({
+      TrackList: TrackListScreen,
+      TrackDetail: TrackDetailScreen,
+    }),
+    TrackCreate: TrackCreateScreen,
+    Account: AccountScreen,
+  }),
+});
 
-export default createAppContainer(navigator);
+export default createAppContainer(switchNavigator);

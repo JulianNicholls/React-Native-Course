@@ -10,6 +10,7 @@ code as Stephen but you have big red messages instead of an app.
 **TRY STOPPING THE SERVER AND RUNNING `npm start` AGAIN.**
 
 This is particularly true if you have messages like `Cannot load module "94"`
+or it disavows knowledge of a file that you've just created
 which is truly mystifying :-)
 
 Another thing is that you can't leave expo running during sleep 
@@ -18,7 +19,7 @@ mystifying errors.
 
 ## Progress
 
-  Completed section 14 - Custom Express API
+  Starting section 14 - In-app authentication
 
 ## Differences from Stephen
 
@@ -56,6 +57,7 @@ mystifying errors.
   is no reason to ever expose the context directly.
 
 ### Blog
+
 * Where Stephen passes the ID of a post to update or delete, I pass the complete 
   post.
 
@@ -70,7 +72,8 @@ mystifying errors.
 ### Track and Track Server
 
 * I always use the terms 'log in' and 'log out', to make a contrast with 'sign up',
-  hence my login route is `/login` rather than `/signin`.
+  hence my login route is `/login` rather than `/signin` and my login and signup 
+  screens are `LoginScreen` and `SignupScreen` respectively.
 
 ### Git client
 
