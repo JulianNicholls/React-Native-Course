@@ -1,49 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
-import { Text, Input, Button } from 'react-native-elements';
+import { NavigationEvents } from 'react-navigation';
 
 import { useAuth } from '../context/Auth';
-
+import AuthForm from '../components/AuthForm';
 import Spacer from '../components/Spacer';
+import NavLink from '../components/NavLink';
 
-const SignupScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const { state: auth, authSignup } = useAuth();
+const SignupScreen = () => {
+  const { state: auth, authClearError, authSignup } = useAuth();
 
   return (
     <View style={styles.container}>
-      <Spacer>
-        <Text h3>Sign up for Tracker</Text>
-      </Spacer>
-      <Input
-        autoCorrect={false}
-        autoCapitalize="none"
-        autoCompleteType="email"
-        keyboardType="email-address"
-        label="Email"
-        value={email}
-        onChangeText={setEmail}
+      <NavigationEvents onWillBlur={authClearError} />
+      <AuthForm
+        headerText="Sign up for Tracker"
+        errorMessage={auth.errorMessage}
+        buttonText="Sign up"
+        buttonAction={authSignup}
       />
-      <Spacer />
-      <Input
-        secureTextEntry
-        autoCorrect={false}
-        autoCapitalize="none"
-        autoCompleteType="password"
-        textContentType="newPassword"
-        label="Password"
-        value={password}
-        onChangeText={setPassword}
-      />
-
-      {auth.errorMessage !== '' && (
-        <Text style={styles.error}>{auth.errorMessage}</Text>
-      )}
-
       <Spacer>
-        <Button title="Sign up" onPress={() => authSignup(email, password)} />
+        <NavLink to="Login" text="Already have an account? Log in instead." />
       </Spacer>
     </View>
   );
@@ -58,12 +36,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     marginBottom: 250,
-  },
-  error: {
-    marginTop: 15,
-    textAlign: 'center',
-    fontSize: 16,
-    color: 'red',
   },
 });
 

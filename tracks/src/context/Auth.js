@@ -19,7 +19,7 @@ const authSignup = dispatch => async (email, password) => {
     dispatch({ type: AUTH_LOGIN, token });
     navigate('TrackList');
   } catch (err) {
-    console.log(err.response.data);
+    // console.log(err.response.data);
     dispatch({
       type: AUTH_ERROR,
       message: 'Cannot sign up with that email address',
@@ -37,13 +37,17 @@ const authLogin = dispatch => async (email, password) => {
     dispatch({ type: AUTH_LOGIN, token });
     navigate('TrackList');
   } catch (err) {
-    console.log(err.response.data);
+    // console.log(err.response.data);
     dispatch({ type: AUTH_ERROR, message: 'Unrecognised email or password' });
   }
 };
 
 const authLogout = dispatch => () => {
   dispatch({ type: AUTH_LOGOUT });
+};
+
+const authClearError = dispatch => () => {
+  dispatch({ type: AUTH_ERROR, message: '' });
 };
 
 const authReducer = (auth, action) => {
@@ -64,7 +68,7 @@ const authReducer = (auth, action) => {
 
 const { Context: AuthContext, Provider: AuthProvider } = createDataContext(
   authReducer,
-  { authSignup, authLogin, authLogout },
+  { authSignup, authLogin, authLogout, authClearError },
   { token: null, errorMessage: '' }
 );
 
