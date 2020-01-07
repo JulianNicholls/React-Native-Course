@@ -75,6 +75,9 @@ mystifying errors.
   hence my login route is `/login` rather than `/signin` and my login and signup 
   screens are `LoginScreen` and `SignupScreen` respectively.
 
+* I have checked the return value from `requestPermissionsAsync` so that I can 
+  detect the request being denied on iOS.
+
 ### Git client
 
 I have used Git at the command-line for more than 10 years. Over that time, I have tried
