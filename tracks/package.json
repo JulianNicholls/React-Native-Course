@@ -20,7 +20,8 @@
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "1.10.3",
     "react-navigation-tabs": "^2.7.0",
-    "react-native-maps": "0.26.1"
+    "react-native-maps": "0.26.1",
+    "expo-location": "~8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
