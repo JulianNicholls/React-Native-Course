@@ -19,7 +19,7 @@ mystifying errors.
 
 ## Progress
 
-  Starting section 14 - In-app authentication
+  Lecture 214 - In-app authentication - Empty screens while resolving Auth
 
 ## Differences from Stephen
 
@@ -43,7 +43,7 @@ mystifying errors.
   uses `Result(s)`
 
 * The filtering in my foodie app is a lot more complicated than Stephen's.
-  In the UK, the Yelp API frequently returns a lot less information, including
+  In the UK, the Yelp API frequently returns much less information, including
   an empty or missing `price` field.
 
   As a consequence of the previous, in addition to the lists with the three 
@@ -63,7 +63,7 @@ mystifying errors.
 
 * I have no clue why Stephen removes the call to dispatch for adding posts
   to the list in memory, necessitating a roundtrip to the server. This would be 
-  disastrous in a real application where there are a large number of posts
+  disastrous in a real application where there are potentially hundreds of posts
   to load from a remote server.
 
   Premature optimisation is to be avoided, but when the code is already there 

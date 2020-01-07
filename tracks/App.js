@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import { AuthProvider } from './src/context/Auth';
 
+import LoadingScreen from './src/screens/LoadingScreen';
 import SignupScreen from './src/screens/SignupScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import TrackCreateScreen from './src/screens/TrackCreateScreen';
@@ -15,6 +16,7 @@ import TrackDetailScreen from './src/screens/TrackDetailScreen';
 import { setNavigator } from './src/navigationRef';
 
 const switchNavigator = createSwitchNavigator({
+  Loading: LoadingScreen,
   loginFlow: createStackNavigator({
     Signup: SignupScreen,
     Login: LoginScreen,

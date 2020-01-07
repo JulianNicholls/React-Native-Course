@@ -42,6 +42,15 @@ const authLogin = dispatch => async (email, password) => {
   }
 };
 
+const authTryLocalLogin = dispatch => async () => {
+  const token = await AsyncStorage.getItem('token');
+
+  if (token) {
+    dispatch({ type: AUTH_LOGIN, token });
+    navigate('TrackList');
+  } else navigate('Signup');
+};
+
 const authLogout = dispatch => () => {
   dispatch({ type: AUTH_LOGOUT });
 };
@@ -68,7 +77,7 @@ const authReducer = (auth, action) => {
 
 const { Context: AuthContext, Provider: AuthProvider } = createDataContext(
   authReducer,
-  { authSignup, authLogin, authLogout, authClearError },
+  { authSignup, authLogin, authTryLocalLogin, authLogout, authClearError },
   { token: null, errorMessage: '' }
 );
 
