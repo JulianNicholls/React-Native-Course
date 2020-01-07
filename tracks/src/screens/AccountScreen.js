@@ -1,8 +1,21 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
+import { Button } from 'react-native-elements';
+
+import { useAuth } from '../context/Auth';
+import Spacer from '../components/Spacer';
 
 const AccountScreen = () => {
-  return <Text style={styles.title}>AccountScreen</Text>;
+  const { authLogout } = useAuth();
+
+  return (
+    <>
+      <Text style={styles.title}>AccountScreen</Text>
+      <Spacer>
+        <Button title="Log out" onPress={authLogout} />
+      </Spacer>
+    </>
+  );
 };
 
 const styles = StyleSheet.create({

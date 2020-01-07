@@ -48,11 +48,15 @@ const authTryLocalLogin = dispatch => async () => {
   if (token) {
     dispatch({ type: AUTH_LOGIN, token });
     navigate('TrackList');
-  } else navigate('Signup');
+  } else {
+    navigate('Signup');
+  }
 };
 
-const authLogout = dispatch => () => {
+const authLogout = dispatch => async () => {
+  await AsyncStorage.removeItem('token');
   dispatch({ type: AUTH_LOGOUT });
+  navigate('loginFlow');
 };
 
 const authClearError = dispatch => () => {
