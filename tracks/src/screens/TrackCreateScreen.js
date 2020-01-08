@@ -9,10 +9,12 @@ import {
 import { Text } from 'react-native-elements';
 
 import Map from '../components/Map';
+import { useLocation } from '../context/Location';
 
-//  import '../_mockLocation'; // Fake locations
+import '../_mockLocation'; // Fake locations
 
 const TrackCreateScreen = () => {
+  const { locAddLocation } = useLocation();
   const [error, setError] = useState(null);
 
   const startWatching = async () => {
@@ -28,12 +30,7 @@ const TrackCreateScreen = () => {
           timeInterval: 2000,
           distanceInterval: 20,
         },
-        location => {
-          console.log(
-            location.coords.latitude.toFixed(4),
-            location.coords.longitude.toFixed(4)
-          );
-        }
+        location => locAddLocation(location)
       );
     } catch (err) {
       console.log(err);
