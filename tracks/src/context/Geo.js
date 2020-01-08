@@ -13,17 +13,17 @@ const geoAddLocation = dispatch => location => {
   dispatch({ type: GEO_ADD_LOCATION, location });
 };
 
-const locationReducer = (state, action) => {
+const locationReducer = (geo, action) => {
   switch (action.type) {
     case GEO_ADD_LOCATION:
       return {
-        ...state,
-        locations: [...state.locations, action.location],
+        ...geo,
+        locations: [...geo.locations, action.location],
         currentLocation: action.location,
       };
 
     default:
-      return state;
+      return geo;
   }
 };
 
