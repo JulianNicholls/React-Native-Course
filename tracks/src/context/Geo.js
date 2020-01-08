@@ -10,6 +10,7 @@ const geoStartRecording = dispatch => () => {};
 const geoStopRecording = dispatch => () => {};
 
 const geoAddLocation = dispatch => location => {
+  console.log('Adding');
   dispatch({ type: GEO_ADD_LOCATION, location });
 };
 
