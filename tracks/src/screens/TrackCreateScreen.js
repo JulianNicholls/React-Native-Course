@@ -1,46 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { SafeAreaView } from 'react-navigation';
 import { StyleSheet } from 'react-native';
-import {
-  requestPermissionsAsync,
-  watchPositionAsync,
-  Accuracy,
-} from 'expo-location';
 import { Text } from 'react-native-elements';
 
 import Map from '../components/Map';
 import { useGeo } from '../context/Geo';
+import useLocation from '../hooks/useLocation';
 
 import '../_mockLocation'; // Fake locations
 
 const TrackCreateScreen = () => {
   const { geoAddLocation } = useGeo();
-  const [error, setError] = useState(null);
-
-  const startWatching = async () => {
-    try {
-      // Currently requestPermissionsAsync does not throw an error on iOS,
-      // so we check the response here.
-      const response = await requestPermissionsAsync();
-      if (!response.granted) return setError('denied');
-
-      await watchPositionAsync(
-        {
-          accuracy: Accuracy.BestForNavigation,
-          timeInterval: 2000,
-          distanceInterval: 20,
-        },
-        location => geoAddLocation(location)
-      );
-    } catch (err) {
-      console.log(err);
-      setError(err);
-    }
-  };
-
-  useEffect(() => {
-    startWatching();
-  }, []);
+  const [error] = useLocation(geoAddLocation);
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
