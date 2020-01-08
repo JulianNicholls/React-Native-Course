@@ -76,7 +76,12 @@ mystifying errors.
   screens are `LoginScreen` and `SignupScreen` respectively.
 
 * I have checked the return value from `requestPermissionsAsync` so that I can 
-  detect the request being denied on iOS.
+  detect the request being denied on iOS and not continue to attempt to get 
+  location data.
+
+* My LocationContext is called GeoContext because there were too many things called
+  location(s). it also means that I can use `useGeo()` to return the context, leaving
+  `useLocation()` free for Stephen's thing.
 
 ### Git client
 

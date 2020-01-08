@@ -2,12 +2,12 @@ import React from 'react';
 import { StyleSheet, ActivityIndicator } from 'react-native';
 import MapView, { Polyline } from 'react-native-maps';
 
-import { useLocation } from '../context/Location';
+import { useGeo } from '../context/Geo';
 
 const Map = () => {
   const {
     state: { currentLocation, locations },
-  } = useLocation();
+  } = useGeo();
 
   if (!currentLocation) {
     return <ActivityIndicator size="large" style={{ marginTop: 200 }} />;
