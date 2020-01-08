@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import { AuthProvider } from './src/context/Auth';
+import { LocationProvider } from './src/context/Location';
 
 import LoadingScreen from './src/screens/LoadingScreen';
 import SignupScreen from './src/screens/SignupScreen';
@@ -35,7 +36,9 @@ const TrackApp = createAppContainer(switchNavigator);
 
 const App = () => (
   <AuthProvider>
-    <TrackApp ref={navigator => setNavigator(navigator)} />
+    <LocationProvider>
+      <TrackApp ref={navigator => setNavigator(navigator)} />
+    </LocationProvider>
   </AuthProvider>
 );
 
