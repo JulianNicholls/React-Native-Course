@@ -19,7 +19,7 @@ mystifying errors.
 
 ## Progress
 
-  Lecture 234 - Automatic geolocation disables
+  Lecture 241 - The useCallback hook
 
 ## Differences from Stephen
 
@@ -102,8 +102,8 @@ possibility of typos between action creators and reducers, e.g.
   already knows whether recording is in progress, it does not need to be 
   communicated from outside, where it's being retrieved from the context anyway...
 
-  His method actually breaks the recording process and he has to spend
-  more than two videos fixing the problem that he created.
+  His method actually breaks the recording process so badly that he has to spend
+  multiple videos fixing the problem that he created.
 
 ### Git client
 
