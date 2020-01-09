@@ -12,6 +12,7 @@ export default (shouldTrack, callback) => {
   useEffect(() => {
     if (shouldTrack) startWatching();
     else {
+      console.log({ subscriber });
       subscriber.remove();
       setSubscriber(null);
     }
@@ -22,6 +23,7 @@ export default (shouldTrack, callback) => {
       // Currently requestPermissionsAsync does not throw an error on iOS,
       // so we check the response here.
       const response = await requestPermissionsAsync();
+
       if (!response.granted) return setError('denied');
 
       const sub = await watchPositionAsync(

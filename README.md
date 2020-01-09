@@ -4,8 +4,8 @@ Code from the Stephen Grider React Native course on
 
 ## PROBLEMS
 
-If you have any unexpected problems, like where you have exactly the same 
-code as Stephen but you have big red messages instead of an app.
+If you have any unexpected problems, for example where you have exactly the 
+same code as Stephen but you have big red messages instead of an app.
 
 **TRY STOPPING THE SERVER AND RUNNING `npm start` AGAIN.**
 
@@ -14,14 +14,29 @@ or it disavows knowledge of a file that you've just created
 which is truly mystifying :-)
 
 Another thing is that you can't leave expo running during sleep 
-or when you install new npm modules. It will not work, and you will get the 
+or when you install new npm modules. It *will not work*, and you will get the 
 mystifying errors.
 
 ## Progress
 
-  Lecture 214 - In-app authentication - Empty screens while resolving Auth
+  Lecture 234 - Automatic geolocation disables
 
 ## Differences from Stephen
+
+### Actions
+
+I always create a set of 'types' for the action creators, this avoids any 
+possibility of typos between action creators and reducers, e.g.
+
+  ``` 
+  dispatch({ type: 'LOAD_POSTS', posts });
+  ...
+  
+  const postsReducer = (posts, action) => {
+    switch (action.type) {
+      case 'LAOD_POSTS':    // Oops, should be 'LOAD_POSTS'
+        ...
+  ```
 
 ### First App
 
@@ -82,6 +97,13 @@ mystifying errors.
 * My LocationContext is called GeoContext because there were too many things called
   location(s). it also means that I can use `useGeo()` to return the context, leaving
   `useLocation()` free for Stephen's thing.
+
+* Stephen is not going the right way about recording. The context
+  already knows whether recording is in progress, it does not need to be 
+  communicated from outside, where it's being retrieved from the context anyway...
+
+  His method actually breaks the recording process and he has to spend
+  more than two videos fixing the problem that he created.
 
 ### Git client
 

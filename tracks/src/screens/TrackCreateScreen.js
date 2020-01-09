@@ -8,6 +8,8 @@ import { Text } from 'react-native-elements';
 import Map from '../components/Map';
 import { useGeo } from '../context/Geo';
 import useLocation from '../hooks/useLocation';
+import Spacer from '../components/Spacer';
+import TrackForm from '../components/TrackForm';
 
 import '../_mockLocation'; // Fake locations
 
@@ -22,6 +24,9 @@ const TrackCreateScreen = ({ isFocused }) => {
       {error !== null && (
         <Text style={styles.error}>Please enable location services</Text>
       )}
+      <Spacer>
+        <TrackForm />
+      </Spacer>
     </SafeAreaView>
   );
 };
