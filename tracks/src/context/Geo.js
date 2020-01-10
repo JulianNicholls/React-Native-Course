@@ -22,7 +22,7 @@ const geoSetTrackName = dispatch => name => {
   dispatch({ type: GEO_TRACK_NAME, name });
 };
 
-const locationReducer = (geo, action) => {
+const geoReducer = (geo, action) => {
   switch (action.type) {
     case GEO_ADD_LOCATION:
       if (geo.recording)
@@ -49,7 +49,7 @@ const locationReducer = (geo, action) => {
 };
 
 const { Context: GeoContext, Provider: GeoProvider } = createDataContext(
-  locationReducer,
+  geoReducer,
   { geoStartRecording, geoStopRecording, geoAddLocation, geoSetTrackName },
   { recording: false, trackName: '', locations: [], currentLocation: null }
 );

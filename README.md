@@ -105,6 +105,8 @@ possibility of typos between action creators and reducers, e.g.
   His method actually breaks the recording process so badly that he has to spend
   multiple videos fixing the problem that he created.
 
+* My _mockLocation makes a wigglier line than Stephen's.
+
 ### Git client
 
 I have used Git at the command-line for more than 10 years. Over that time, I have tried

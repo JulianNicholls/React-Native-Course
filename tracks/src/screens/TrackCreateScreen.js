@@ -14,8 +14,8 @@ import TrackForm from '../components/TrackForm';
 import '../_mockLocation'; // Fake locations
 
 const TrackCreateScreen = ({ isFocused }) => {
-  const { geoAddLocation } = useGeo();
-  const [error] = useLocation(isFocused, geoAddLocation);
+  const { state: geo, geoAddLocation } = useGeo();
+  const [error] = useLocation(isFocused || geo.recording, geoAddLocation);
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
