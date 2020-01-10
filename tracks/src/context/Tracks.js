@@ -11,10 +11,8 @@ const tracksLoad = dispatch => () => {
 };
 
 const tracksCreate = dispatch => async (name, locations) => {
-  console.log('saving', name, locations.length);
   const response = await trackApi.post('/tracks', { name, locations });
 
-  console.log(response);
   dispatch({ type: TRACKS_CREATE, track: response.data });
 };
 

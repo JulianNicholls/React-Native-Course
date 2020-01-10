@@ -29,7 +29,7 @@ const TrackForm = () => {
         <Button title="Start Recording" onPress={geoStartRecording} />
       )}
 
-      {!recording && locations.length > 0 && trackName && (
+      {!recording && locations.length > 0 && trackName !== '' && (
         <Button style={{ marginTop: 15 }} title="Save Track" onPress={saveTrack} />
       )}
     </>

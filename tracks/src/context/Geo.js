@@ -5,6 +5,7 @@ const GEO_ADD_LOCATION = 'GEO_ADD_LOCATION';
 const GEO_START = 'GEO_START';
 const GEO_STOP = 'GEO_STOP';
 const GEO_TRACK_NAME = 'GEO_TRACK_NAME';
+const GEO_RESET = 'GEO_RESET';
 
 const geoStartRecording = dispatch => () => {
   dispatch({ type: GEO_START });
@@ -20,6 +21,10 @@ const geoAddLocation = dispatch => location => {
 
 const geoSetTrackName = dispatch => name => {
   dispatch({ type: GEO_TRACK_NAME, name });
+};
+
+const geoReset = dispatch => () => {
+  dispatch({ type: GEO_RESET });
 };
 
 const geoReducer = (geo, action) => {
@@ -43,6 +48,9 @@ const geoReducer = (geo, action) => {
     case GEO_TRACK_NAME:
       return { ...geo, trackName: action.name };
 
+    case GEO_RESET:
+      return { ...geo, trackName: '', locations: [] };
+
     default:
       return geo;
   }
@@ -50,7 +58,13 @@ const geoReducer = (geo, action) => {
 
 const { Context: GeoContext, Provider: GeoProvider } = createDataContext(
   geoReducer,
-  { geoStartRecording, geoStopRecording, geoAddLocation, geoSetTrackName },
+  {
+    geoStartRecording,
+    geoStopRecording,
+    geoAddLocation,
+    geoSetTrackName,
+    geoReset,
+  },
   { recording: false, trackName: '', locations: [], currentLocation: null }
 );
 

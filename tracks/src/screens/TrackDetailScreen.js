@@ -1,14 +1,11 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Text } from 'react-native-elements';
 
 const TrackDetailScreen = () => {
-  return <Text style={styles.title}>TrackDetailScreen</Text>;
+  return <Text h3>Track Detail Screen</Text>;
 };
 
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 32,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default TrackDetailScreen;
