@@ -19,7 +19,7 @@ mystifying errors.
 
 ## Progress
 
-  Lecture 241 - The useCallback hook
+  Lecture 249 - Form Reset and navigation
 
 ## Differences from Stephen
 
@@ -105,7 +105,8 @@ possibility of typos between action creators and reducers, e.g.
   His method actually breaks the recording process so badly that he has to spend
   multiple videos fixing the problem that he created.
 
-* My _mockLocation makes a wigglier line than Stephen's.
+* My _mockLocation makes a wigglier line than Stephen's by not adding to both
+  latitude and longitude every time. I also slowed the update rate down to every 2s.
 
 ### Git client
 
