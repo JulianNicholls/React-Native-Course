@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import { AuthProvider } from './src/context/Auth';
 import { GeoProvider } from './src/context/Geo';
+import { TracksProvider } from './src/context/Tracks';
 
 import LoadingScreen from './src/screens/LoadingScreen';
 import SignupScreen from './src/screens/SignupScreen';
@@ -37,7 +38,9 @@ const TrackApp = createAppContainer(switchNavigator);
 const App = () => (
   <AuthProvider>
     <GeoProvider>
-      <TrackApp ref={navigator => setNavigator(navigator)} />
+      <TracksProvider>
+        <TrackApp ref={navigator => setNavigator(navigator)} />
+      </TracksProvider>
     </GeoProvider>
   </AuthProvider>
 );
