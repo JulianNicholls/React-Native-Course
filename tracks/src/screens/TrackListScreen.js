@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
-import { Text, Button, ListItem } from 'react-native-elements';
+import { Text, ListItem } from 'react-native-elements';
 
 import { useTracks } from '../context/Tracks';
 
@@ -12,8 +12,6 @@ const TrackListScreen = ({ navigation }) => {
     tracksLoad,
   } = useTracks();
 
-  console.log(tracks);
-
   return (
     <>
       <NavigationEvents onWillFocus={tracksLoad} />
@@ -22,7 +20,9 @@ const TrackListScreen = ({ navigation }) => {
         data={tracks}
         keyExtractor={item => item._id}
         renderItem={({ item }) => (
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('TrackDetail', { _id: item._id })}
+          >
             <ListItem chevron title={item.name} />
           </TouchableOpacity>
         )}
@@ -30,8 +30,6 @@ const TrackListScreen = ({ navigation }) => {
     </>
   );
 };
-
-const styles = StyleSheet.create({});
 
 TrackListScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
