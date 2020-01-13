@@ -6,8 +6,10 @@ import trackApi from '../api/tracker';
 const TRACKS_LOAD = 'TRACKS_LOAD';
 const TRACKS_CREATE = 'TRACKS_CREATE';
 
-const tracksLoad = dispatch => () => {
-  dispatch({ type: TRACKS_LOAD /* tracks */ });
+const tracksLoad = dispatch => async () => {
+  const response = await trackApi.get('/tracks');
+
+  dispatch({ type: TRACKS_LOAD, tracks: response.data });
 };
 
 const tracksCreate = dispatch => async (name, locations) => {
