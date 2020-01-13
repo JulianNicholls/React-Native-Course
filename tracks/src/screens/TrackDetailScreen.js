@@ -14,7 +14,6 @@ const TrackDetailScreen = ({ navigation }) => {
   const track = tracks.find(({ _id }) => _id === trackId);
   const locations = track.locations.map(({ coords }) => coords);
 
-  console.log({ length: locations.length, 0: locations[0] });
   return (
     <>
       <Text h3>{track.name}</Text>

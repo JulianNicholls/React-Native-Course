@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { SafeAreaView, withNavigationFocus } from 'react-navigation';
 import { StyleSheet } from 'react-native';
 import { Text } from 'react-native-elements';
+import { FontAwesome } from '@expo/vector-icons';
 
 import Map from '../components/Map';
 import { useGeo } from '../context/Geo';
@@ -37,6 +37,11 @@ const styles = StyleSheet.create({
     color: 'red',
   },
 });
+
+TrackCreateScreen.navigationOptions = {
+  title: 'Add Track',
+  tabBarIcon: <FontAwesome name="plus" size={20} />,
+};
 
 TrackCreateScreen.propTypes = {
   isFocused: PropTypes.bool.isRequired,

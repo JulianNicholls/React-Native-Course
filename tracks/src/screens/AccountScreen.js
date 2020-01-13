@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements';
+import { StyleSheet } from 'react-native';
+import { Text, Button } from 'react-native-elements';
 import { SafeAreaView } from 'react-navigation';
+import { FontAwesome } from '@expo/vector-icons';
 
 import { useAuth } from '../context/Auth';
 import Spacer from '../components/Spacer';
@@ -11,12 +12,17 @@ const AccountScreen = () => {
 
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
-      <Text style={styles.title}>AccountScreen</Text>
+      <Text h3>Your account</Text>
       <Spacer>
         <Button title="Log out" onPress={authLogout} />
       </Spacer>
     </SafeAreaView>
   );
+};
+
+AccountScreen.navigationOptions = {
+  title: 'Account',
+  tabBarIcon: <FontAwesome name="gear" size={20} />,
 };
 
 const styles = StyleSheet.create({

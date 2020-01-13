@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { AuthProvider } from './src/context/Auth';
 import { GeoProvider } from './src/context/Geo';
 import { TracksProvider } from './src/context/Tracks';
+import { FontAwesome } from '@expo/vector-icons';
 
 import LoadingScreen from './src/screens/LoadingScreen';
 import SignupScreen from './src/screens/SignupScreen';
@@ -17,6 +18,16 @@ import TrackDetailScreen from './src/screens/TrackDetailScreen';
 
 import { setNavigator } from './src/navigationRef';
 
+const trackListFlow = createStackNavigator({
+  TrackList: TrackListScreen,
+  TrackDetail: TrackDetailScreen,
+});
+
+trackListFlow.navigationOptions = {
+  title: 'Tracks',
+  tabBarIcon: <FontAwesome name="th-list" size={20} />,
+};
+
 const switchNavigator = createSwitchNavigator({
   Loading: LoadingScreen,
   loginFlow: createStackNavigator({
@@ -24,10 +35,7 @@ const switchNavigator = createSwitchNavigator({
     Login: LoginScreen,
   }),
   mainFlow: createBottomTabNavigator({
-    trackListFlow: createStackNavigator({
-      TrackList: TrackListScreen,
-      TrackDetail: TrackDetailScreen,
-    }),
+    trackListFlow,
     TrackCreate: TrackCreateScreen,
     Account: AccountScreen,
   }),

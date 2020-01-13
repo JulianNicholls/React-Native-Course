@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { NavigationEvents } from 'react-navigation';
-import { Text, ListItem } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 
 import { useTracks } from '../context/Tracks';
 
@@ -15,7 +15,6 @@ const TrackListScreen = ({ navigation }) => {
   return (
     <>
       <NavigationEvents onWillFocus={tracksLoad} />
-      <Text h3>Track List Screen</Text>
       <FlatList
         data={tracks}
         keyExtractor={item => item._id}
@@ -29,6 +28,10 @@ const TrackListScreen = ({ navigation }) => {
       />
     </>
   );
+};
+
+TrackListScreen.navigationOptions = {
+  title: 'Tracks',
 };
 
 TrackListScreen.propTypes = {
