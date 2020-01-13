@@ -19,7 +19,7 @@ mystifying errors.
 
 ## Progress
 
-  Lecture 249 - Form Reset and navigation
+  Completed latest version of the course
 
 ## Differences from Stephen
 
@@ -38,6 +38,11 @@ possibility of typos between action creators and reducers, e.g.
         ...
   ```
 
+### Context
+
+I always create a custom hook for a context which returns the context, chacking
+that it's valid before returning it.
+
 ### First App
 
 * My rn-starter directory is more or less untouched from Stephen's zip file.
@@ -54,8 +59,8 @@ possibility of typos between action creators and reducers, e.g.
   reducer action. The main exception to this is when using `redux-promise` which 
   requires that the promised data name has to be `payload`.
 
-* My classes in the foodie app are generally `Restaurant` where Stephen 
-  uses `Result(s)`
+* My classes in the foodie app are generally `Restaurant...` where Stephen 
+  uses `Result(s)...`
 
 * The filtering in my foodie app is a lot more complicated than Stephen's.
   In the UK, the Yelp API frequently returns much less information, including
@@ -67,9 +72,6 @@ possibility of typos between action creators and reducers, e.g.
   Also, so many of the restaurants don't even have a single picture, so I have 
   added a placeholder image to the restaurant lists, and have taken care of it 
   on the restaurant detail page as well.
-
-* I have changed the context in the blog app to use a custom hook, because there
-  is no reason to ever expose the context directly.
 
 ### Blog
 
@@ -105,7 +107,7 @@ possibility of typos between action creators and reducers, e.g.
   His method actually breaks the recording process so badly that he has to spend
   multiple videos fixing the problem that he created.
 
-* My _mockLocation makes a wigglier line than Stephen's by not adding to both
+* My `_mockLocation` makes a wigglier line than Stephen's by not adding to both
   latitude and longitude every time. I also slowed the update rate down to every 2s.
 
 ### Git client
