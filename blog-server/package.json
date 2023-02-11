@@ -12,7 +12,7 @@
   "author": "Julian Nicholls <juliannicholls29@gmail.com> (https://reallybigshoe.co.uk/)",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^0.15.1",
+    "json-server": "^0.17.1",
     "ngrok": "^3.2.7"
   }
 }
