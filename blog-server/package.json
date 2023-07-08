@@ -13,6 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "json-server": "^0.17.1",
-    "ngrok": "^3.2.7"
+    "ngrok": "^5.0.0-beta.2"
   }
 }
