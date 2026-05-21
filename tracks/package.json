@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "axios": "^1.15.2",
-    "expo": "~54.0.31",
+    "expo": "~56.0.3",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
